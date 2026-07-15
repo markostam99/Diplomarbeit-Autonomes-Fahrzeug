@@ -22,4 +22,6 @@ Projektplanung abgeschlossen.
 
 Hardware bestellt.
 
+Warte auf Hardware
+
 Dokumentation in Bearbeitung.
