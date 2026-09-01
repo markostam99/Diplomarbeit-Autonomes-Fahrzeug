@@ -40,6 +40,8 @@ Der physische Pin 17 des Raspberry Pi stellt die 3,3-V-Versorgung für eine Brea
 
 Der linke Grove Ultrasonic Ranger wird separat direkt über den physischen Pin 1 des Raspberry Pi mit 3,3 V versorgt.
 
+Grund dafür ist, die fehlende Anzahl 3.3V Pins
+
 ## Weitere Schnittstellen
 
 Die Raspberry Pi Camera Module 3 Wide ist nicht über die GPIO-Pinleiste angeschlossen. Die Verbindung zum Raspberry Pi erfolgt über die CSI-Schnittstelle.
