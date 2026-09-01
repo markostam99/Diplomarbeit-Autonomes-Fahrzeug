@@ -11,5 +11,6 @@ Enthalten sind bzw. werden unter anderem Tests für:
 - TB6612FNG-Motortreiber und DC-Motoren
 - Status-LEDs
 - Starttaster
+- Testbilder zur Überprüfung der Kameraaufnahme und Bildausrichtung
 
 Die funktionierenden Testprogramme dienen später als Grundlage für die modular aufgebaute Fahrzeugsoftware.
