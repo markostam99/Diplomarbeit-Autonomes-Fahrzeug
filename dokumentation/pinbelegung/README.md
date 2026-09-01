@@ -22,8 +22,8 @@ Die Pinbelegung basiert auf der tatsächlich realisierten Verdrahtung und dient 
 | 31 | GPIO6 | TB6612FNG | AIN2 |
 | 32 | GPIO12 | TB6612FNG | PWMA |
 | 33 | GPIO13 | TB6612FNG | PWMB |
-| 36 | GPIO16 | Rote Status-LED | Ausgang über 220-Ohm-Widerstand |
-| 38 | GPIO20 | Grüne Status-LED | Ausgang über 220-Ohm-Widerstand |
+| 36 | GPIO16 | Rote Status-LED | über 220-Ohm-Widerstand |
+| 38 | GPIO20 | Grüne Status-LED | über 220-Ohm-Widerstand |
 | 40 | GPIO21 | Starttaster | Eingang |
 | 30 | GND | Starttaster | GND |
 | 34 | GND | Rote Status-LED | GND |
