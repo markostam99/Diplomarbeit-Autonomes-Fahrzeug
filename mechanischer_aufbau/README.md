@@ -12,7 +12,7 @@ die weiteren Hardwarekomponenten vorhanden bleibt.
  
 Die Leitungen der DC-Motoren wurden zusätzlich mit Schrumpfschlauch geschützt. 
  
-![Chassis](bilder/01_chassis.jpg) 
+![Chassis](bilder/01_chassis.jpeg) 
  
 ## 2. Raspberry Pi 
  
@@ -20,7 +20,7 @@ Für die Montage des Raspberry Pi wurden zusätzliche Löcher in das Chassis geb
 Die Recheneinheit wurde mit Abstandshaltern befestigt und bewusst eher im hinteren  
 Bereich positioniert, damit vorne genügend Platz für die Sensorik vorhanden bleibt. 
  
-![Raspberry Pi](bilder/02_raspberry_pi.jpg) 
+![Raspberry Pi](bilder/02_raspberry_pi.jpeg) 
  
 ## 3. Kamera 
  
@@ -30,7 +30,7 @@ montiert. Dafür wurden zusätzliche Befestigungslöcher in das Chassis gebohrt.
 Die Position wurde so gewählt, dass die Kamera den Streckenverlauf möglichst gut  
 erfassen kann. 
  
-![Kamera](bilder/03_kamera.jpg) 
+![Kamera](bilder/03_kamera.jpeg) 
  
 ## 4. Stromversorgung 
  
@@ -40,7 +40,7 @@ befestigt. Die Akkupacks für den Antrieb wurden auf der Unterseite positioniert
 Während des Aufbaus wurde deren Position leicht angepasst, um die Gewichtsverteilung  
 und die Kabelführung zu verbessern. 
  
-![Stromversorgung](bilder/04_stromversorgung.jpg) 
+![Stromversorgung](bilder/04_stromversorgung.jpeg) 
  
 ## 5. Ultraschallsensoren 
  
@@ -50,7 +50,7 @@ Zusätzlich wurde an bestimmten Stellen Klettband als Schutz verwendet, damit
 metallische Befestigungsteile keinen direkten Kontakt mit elektronischen Teilen  
 der Sensoren haben. 
  
-![Ultraschallsensoren](bilder/05_ultraschallsensoren.jpg) 
+![Ultraschallsensoren](bilder/05_ultraschallsensoren.jpeg) 
  
 ## 6. Motortreiber 
  
@@ -60,7 +60,7 @@ wurde anschließend mit Klettband auf dem Chassis befestigt.
 Dadurch konnte eine geeignete Montagefläche für den Motortreiber und dessen  
 Verdrahtung geschaffen werden. 
  
-![Motortreiber](bilder/06_motortreiber.jpg) 
+![Motortreiber](bilder/06_motortreiber.jpeg) 
  
 ## 7. LED und Starttaster 
  
@@ -70,7 +70,7 @@ kleine Breadboards am Fahrzeug montiert.
 Dafür wurde eine vorhandene Öffnung im Chassis leicht angepasst, sodass die  
 Breadboards befestigt werden konnten. 
  
-![LED und Starttaster](bilder/07_led_taster.jpg) 
+![LED und Starttaster](bilder/07_led_taster.jpeg) 
  
 ## 8. Fertiger mechanischer Aufbau 
  
@@ -80,4 +80,4 @@ und die Kabelführung anschließend mit Kabelbindern optimiert.
 Damit ist der mechanische und elektrische Aufbau für die weitere  
 Softwareentwicklung und die Tests auf der Teststrecke vorbereitet. 
  
-![Fertiger Aufbau](bilder/08_fertiger_aufbau.jpg)
+![Fertiger Aufbau](bilder/08_fertiger_aufbau.jpeg)
