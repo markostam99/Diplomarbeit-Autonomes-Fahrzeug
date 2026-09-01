@@ -17,6 +17,7 @@ Die Pinbelegung basiert auf der tatsächlich realisierten Verdrahtung und dient 
 | 15 | GPIO22 | TB6612FNG | STBY |
 | 16 | GPIO23 | TB6612FNG | BIN1 |
 | 18 | GPIO24 | TB6612FNG | BIN2 |
+| 20 | GND | TB6612FNG | GND / gemeinsame Masse |
 | 29 | GPIO5 | TB6612FNG | AIN1 |
 | 31 | GPIO6 | TB6612FNG | AIN2 |
 | 32 | GPIO12 | TB6612FNG | PWMA |
