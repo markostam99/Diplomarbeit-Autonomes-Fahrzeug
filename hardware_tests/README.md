@@ -13,4 +13,4 @@ Enthalten sind bzw. werden unter anderem Tests für:
 - Starttaster
 - Testbilder zur Überprüfung der Kameraaufnahme und Bildausrichtung
 
-Die funktionierenden Testprogramme dienen später als Grundlage für die modular aufgebaute Fahrzeugsoftware.
+Die Testprogramme dienen zu diesem Zeitpunkt für die Technische Kontrolle der Hardwarekomponente. 
