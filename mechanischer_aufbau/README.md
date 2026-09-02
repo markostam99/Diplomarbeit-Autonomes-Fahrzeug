@@ -13,7 +13,7 @@ die weiteren Hardwarekomponenten vorhanden bleibt.
 Die Leitungen der DC-Motoren wurden zusätzlich mit Schrumpfschlauch geschützt. 
 
 ![Chassis](bilder/01_chassis.jpeg) 
- 
+
 ## 2. Raspberry Pi 
  
 Für die Montage des Raspberry Pi wurden zusätzliche Löcher in das Chassis gebohrt.  
