@@ -75,7 +75,7 @@ Die übergeordnete Fahrzeuglogik wird über eine State Machine umgesetzt. Die ei
 
 ### Aktuell
 
-Strukturierung der Softwaremodule
+- Strukturierung der Softwaremodule
 
 ### Nächste Schritte
 
