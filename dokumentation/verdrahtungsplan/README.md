@@ -31,4 +31,4 @@ Der Verdrahtungsplan wurde mit KiCad erstellt.
 Die PDF-Datei stellt den dokumentierten Stand der realisierten Hardwareverdrahtung dar.
 
 #
-![Verdrahtungsplan](Verdrahtungplan.pdf)
+![Verdrahtungsplan](Verdrahtungsplan.pdf)
