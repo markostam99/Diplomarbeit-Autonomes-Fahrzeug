@@ -80,8 +80,15 @@ Strukturierung der Softwaremodule
 ### Nächste Schritte
 
 - Entwicklung der einzelnen Hardwaremodule
+- Test und Validierung der einzelnen Softwaremodule
 - Entwicklung der Bildverarbeitung
 - Umsetzung der Kurvenmarkierungserkennung
 - Umsetzung der Hinderniserkennung
+- Entwicklung der Fahr- und Korrekturlogik
 - Implementierung der State Machine
+- Schrittweise Integration der Softwaremodule
+- Abstimmung und Parametrierung des Fahrverhaltens
+- Fehlerbehandlung und sicherer STOP-Zustand
 - Integration und Test des Gesamtsystems auf der Teststrecke
+- Optimierung anhand der Testfahrten
+- Dokumentation des finalen Softwarestand
