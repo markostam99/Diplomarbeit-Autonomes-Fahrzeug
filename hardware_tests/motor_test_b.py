@@ -16,7 +16,7 @@ lgpio.gpio_claim_output(chip, STBY)
 # Motortreiber aktivieren
 lgpio.gpio_write(chip, STBY, 1)
 
-# Drehrichtung Motor B
+# Drehrichtung Motor B/ BIN1 = 0 und BIN2 = 1 --> Rückwärtsbewegung Rad
 lgpio.gpio_write(chip, BIN1, 1)
 lgpio.gpio_write(chip, BIN2, 0)
 
