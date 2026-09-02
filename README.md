@@ -71,15 +71,14 @@ Die übergeordnete Fahrzeuglogik wird über eine State Machine umgesetzt. Die ei
 - Elektrische Verdrahtung der Hardware
 - Erstellung des finalen Verdrahtungsplans
 - Grundlegende Hardwaretests
+- Erster Aufbau und Dokumentation des GitHub-Repositories
 
 ### Aktuell
 
-Aufbau und Dokumentation des GitHub-Repositories als Grundlage für die anschliessende Softwareentwicklung.
+Strukturierung der Softwaremodule
 
 ### Nächste Schritte
 
-- Strukturierung der Softwaremodule
-- Übernahme und Bereinigung der bisherigen Hardware-Testprogramme
 - Entwicklung der einzelnen Hardwaremodule
 - Entwicklung der Bildverarbeitung
 - Umsetzung der Kurvenmarkierungserkennung
