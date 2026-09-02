@@ -2,7 +2,7 @@
 
 Diese Datei dokumentiert die im Fahrzeug verwendeten GPIO- und Versorgungspins des Raspberry Pi 4.
 
-Die Pinbelegung basiert auf der tatsächlich realisierten Verdrahtung und dient als Referenz für die Hardwareansteuerung und die spätere Softwareentwicklung.
+Die Pinbelegung basiert auf der tatsächlich realisierten Verdrahtung und dient als Übersicht für die Hardwareansteuerung und die spätere Softwareentwicklung.
 
 ## GPIO- und Pinbelegung
 
