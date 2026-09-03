@@ -72,10 +72,11 @@ Die übergeordnete Fahrzeuglogik wird über eine State Machine umgesetzt. Die ei
 - Erstellung des finalen Verdrahtungsplans
 - Grundlegende Hardwaretests
 - Erster Aufbau und Dokumentation des GitHub-Repositories
+- Strukturierung der Softwaremodule
 
 ### Aktuell
 
-- Strukturierung der Softwaremodule
+- Ermittlung und Abstimmung der Fahrparameter auf der Teststrecke
 
 ### Nächste Schritte
 
