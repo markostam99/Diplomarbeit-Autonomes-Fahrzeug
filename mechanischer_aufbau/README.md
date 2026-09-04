@@ -62,8 +62,7 @@ Verdrahtung geschaffen werden.
 
 Während der ersten Fahrversuche wurde der Aufbau im Bereich des Motortreibers  
 nachträglich angepasst. Die Leitungen der Motor-Leistungsseite wurden vom  
-Breadboard getrennt und direkter mit dem Motortreiber verbunden. Das Breadboard  
-wird weiterhin für die Logikseite verwendet.
+Breadboard getrennt und direkter mit dem Motortreiber verbunden.
 
 ![Motortreiber](bilder/06_motortreiber.jpeg)
 
