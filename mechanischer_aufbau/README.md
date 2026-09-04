@@ -58,9 +58,18 @@ Der TB6612FNG-Motortreiber wurde auf einem Breadboard montiert. Das Breadboard
 wurde anschließend mit Klettband auf dem Chassis befestigt. 
  
 Dadurch konnte eine geeignete Montagefläche für den Motortreiber und dessen  
-Verdrahtung geschaffen werden. 
- 
-![Motortreiber](bilder/06_motortreiber.jpeg) 
+Verdrahtung geschaffen werden.
+
+Während der ersten Fahrversuche wurde der Aufbau im Bereich des Motortreibers  
+nachträglich angepasst. Die Leitungen der Motor-Leistungsseite wurden vom  
+Breadboard getrennt und direkter mit dem Motortreiber verbunden. Das Breadboard  
+wird weiterhin für die Logikseite verwendet.
+
+![Motortreiber](bilder/06_motortreiber.jpeg)
+
+![Anpassung Motortreiber](bilder/09_anpassung_motortreiber.jpeg)
+
+*Angepasster Aufbau des Motortreibers nach den ersten Fahrversuchen.*
  
 ## 7. LED und Starttaster 
  
