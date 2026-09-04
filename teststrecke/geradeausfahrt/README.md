@@ -22,7 +22,4 @@ Die PWM-Werte beider Motoren können im Programm unabhängig voneinander angepas
 
 Als geeignete Grundeinstellung wurden 70 % PWM für den linken und 67 % PWM für den rechten Motor ermittelt. Die unterschiedliche Ansteuerung gleicht das abweichende Laufverhalten der beiden Motoren aus und führt zu einer möglichst gleichmässigen Geradeausfahrt.
 
-Das verwendete Testprogramm befindet sich ebenfalls in diesem Ordner:
-
-`geradeausfahrt_test.py`
 
