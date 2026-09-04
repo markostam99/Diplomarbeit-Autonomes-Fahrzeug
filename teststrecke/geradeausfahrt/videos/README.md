@@ -2,13 +2,13 @@
 
 Zur Dokumentation der Optimierung wurden zwei Testfahrten aufgezeichnet.
 
-[Video ansehen](videos/geradeausfahrt_vor_kalibrierung.mp4)
+[▶ Video vor der Kalibrierung abspielen](videos/geradeausfahrt_vor_kalibrierung.mp4)
 
 ### Vor der Kalibrierung
 
 Zu Beginn wurden beide Motoren ohne angepasste PWM-Werte angesteuert. Dabei zeigte sich eine deutliche Abweichung von der geraden Fahrtrichtung.
 
-[Video ansehen](videos/geradeausfahrt_nach_kalibrierung.mp4)
+[▶ Video nach der Kalibrierung abspielen](videos/geradeausfahrt_nach_kalibrierung.mp4)
 
 ### Nach der Kalibrierung
 
