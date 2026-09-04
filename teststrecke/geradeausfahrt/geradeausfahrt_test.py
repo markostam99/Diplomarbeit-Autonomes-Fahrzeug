@@ -15,7 +15,7 @@ STBY = 22
 # Testwerte
 PWM_LINKS = 50
 PWM_RECHTS = 50
-DAUER = 2
+DAUER = 3
 
 h = lgpio.gpiochip_open(0)
 
