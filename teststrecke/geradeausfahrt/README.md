@@ -14,5 +14,15 @@ Nach mehreren Testfahrten und der schrittweisen Anpassung der Motoransteuerung w
 
 https://github.com/user-attachments/assets/77c66974-9f9c-476e-b656-dc1fa83be461
 
+## Testprogramm und Motoransteuerung
 
+Für die Versuche wurde das Testprogramm `geradeausfahrt_test.py` erstellt. Dieses ermöglicht die getrennte PWM-Ansteuerung des linken und rechten DC-Motors über den TB6612FNG-Motortreiber.
+
+Die PWM-Werte beider Motoren können im Programm unabhängig voneinander angepasst werden. Dadurch wurde die Motorleistung während der Testfahrten schrittweise verändert und das resultierende Fahrverhalten beobachtet.
+
+Als geeignete Grundeinstellung wurden 70 % PWM für den linken und 67 % PWM für den rechten Motor ermittelt. Die unterschiedliche Ansteuerung gleicht das abweichende Laufverhalten der beiden Motoren aus und führt zu einer möglichst gleichmässigen Geradeausfahrt.
+
+Das verwendete Testprogramm befindet sich ebenfalls in diesem Ordner:
+
+`geradeausfahrt_test.py`
 
