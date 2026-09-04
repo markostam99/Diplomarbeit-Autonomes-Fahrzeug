@@ -4,6 +4,8 @@ Für die praktische Entwicklung und Validierung des autonomen Fahrzeugs wurde ei
 
 Die Testumgebung dient zur Ermittlung der Fahrparameter sowie zur schrittweisen Entwicklung und Überprüfung der vorgesehenen Fahrzeugfunktionen. Dazu gehören die Abstandserfassung, die Erkennung von Kurvenmarkierungen und farbigen Hindernissen sowie die daraus resultierenden Fahrmanöver.
 
+Die abschliessenden Testfahrten auf der Teststrecke dienen dazu, die in der Diplomarbeit definierten Aufgaben und Ziele unter realen Fahrbedingungen zu überprüfen und die Funktionsfähigkeit des Gesamtsystems nachzuweisen.
+
 ## Aufbau der Teststrecke
 
 ![Gesamtansicht der Teststrecke](bilder/teststrecke_ansicht01.jpeg)
