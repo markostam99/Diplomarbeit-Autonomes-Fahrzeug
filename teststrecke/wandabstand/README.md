@@ -10,7 +10,7 @@ Zur Kontrolle wurde der reale Abstand zwischen Sensor und Wand mit einem Masssta
 
 Die Messungen zeigten über verschiedene Positionen eine Abweichung von ungefähr ±0,5 bis 1 cm. Beide Ultraschallsensoren lieferten dabei überwiegend stabile und plausible Werte.
 
-Um die Messwerte zu prüfen wurde "ultrasonic_both.py" verwendet.
+Um die Messwerte zu prüfen wurde `ultrasonic_both.py` verwendet.
 
 ![Statische Abstandsmessung](bilder/wandabstand_messung_01.jpeg)
 
