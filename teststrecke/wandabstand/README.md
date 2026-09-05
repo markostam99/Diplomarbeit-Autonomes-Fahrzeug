@@ -20,8 +20,18 @@ Um die Messwerte zu prüfen wurde `ultrasonic_both.py` verwendet.
 
 *Gleichzeitige Ausgabe der Messwerte des linken und rechten Ultraschallsensors.*
 
-## Zwischenstand
+## 2. Abstandsmessung während der Fahrt
 
-Die statischen Messungen zeigen, dass beide Ultraschallsensoren für die weitere Ermittlung des Wandabstands verwendet werden können.
+Nach der statischen Überprüfung wurden die beiden Ultraschallsensoren während der Fahrt auf der Teststrecke getestet. Das Fahrzeug fuhr dabei mit den zuvor ermittelten PWM-Grundwerten von 70 % für den linken und 67 % für den rechten Motor einen geraden Streckenabschnitt entlang.
 
-Als nächster Schritt wird das Verhalten der Abstandsmessung während der Fahrt untersucht. Dabei soll geprüft werden, wie stabil sich die Messwerte bei einem fahrenden Fahrzeug verhalten. Auf Grundlage dieser Versuche werden anschliessend geeignete Abstandsgrenzen für die spätere Fahrkorrektur bestimmt.
+Während der Fahrt wurden die Messwerte beider Ultraschallsensoren kontinuierlich im Terminal ausgegeben. Die Abstände veränderten sich entsprechend der Position des Fahrzeugs nachvollziehbar.
+
+Besonders deutlich zeigte sich das Verhalten beim Verlassen eines Bereichs mit seitlicher Wand. Sobald auf einer Seite keine Wand mehr erfasst wurde, stieg der entsprechende Messwert deutlich an, während der gegenüberliegende Sensor weiterhin plausible Abstandswerte lieferte.
+
+![Dynamischer Wandabstandstest](bilder/wandabstand_fahrt_01.jpeg)
+
+*Fahrtrichtung des Fahrzeugs während des dynamischen Wandabstandstests.*
+
+![Messwerte während der Fahrt](bilder/wandabstand_fahrt_terminal_01.png)
+
+*Kontinuierliche Ausgabe der linken und rechten Abstandsmessung während der Fahrt.*
