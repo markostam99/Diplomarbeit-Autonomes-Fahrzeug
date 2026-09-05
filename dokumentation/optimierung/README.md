@@ -27,3 +27,6 @@ Nach den Anpassungen wurden mehrere Fahrversuche sowie gezielte Belastungstests 
 Da der Fehler zuvor nur sporadisch auftrat, kann die genaue Ursache nicht abschliessend bestätigt werden.
 
 Der angepasste Aufbau wird für die weiteren Tests auf der Teststrecke verwendet.
+
+### Aktuell
+Robotik Fahrzeug hat anhand dieser Optimierungen einen ganzen Testtag ohne Reboot überstanden, es wird davon ausgegangen das die Motorströme kein Problem mehr verursachen. Sollte das nicht der Fall sein, wird in diesem Abschnitt weiter darauf eingegangen. 
