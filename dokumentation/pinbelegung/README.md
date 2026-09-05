@@ -8,12 +8,12 @@ Die Pinbelegung basiert auf der tatsächlich realisierten Verdrahtung und dient 
 
 | Physischer Pin | GPIO / Versorgung | Komponente | Anschluss / Funktion |
 |---:|---|---|---|
-| 1 | 3,3 V | Ultraschall links | VCC |
+| 1 | 3,3 V | TB6612FNG | VCC direkt vom Raspberry Pi |
+| 17 | 3,3 V | Breadboard | 3,3-V-Zuleitung für beide Ultraschallsensoren |
 | 6 | GND | Ultraschall links | GND |
 | 11 | GPIO17 | Ultraschall links | SIG |
-| 17 | 3,3 V | Breadboard | 3,3-V-Zuleitung |
-| 13 | GPIO27 | Ultraschall rechts | SIG |
 | 14 | GND | Ultraschall rechts | GND |
+| 13 | GPIO27 | Ultraschall rechts | SIG |
 | 15 | GPIO22 | TB6612FNG | STBY |
 | 16 | GPIO23 | TB6612FNG | BIN1 |
 | 18 | GPIO24 | TB6612FNG | BIN2 |
@@ -35,13 +35,10 @@ Der physische Pin 17 des Raspberry Pi stellt die 3,3-V-Versorgung für eine Brea
 
 Über diese Verteilung werden folgende Komponenten versorgt:
 
+- VCC des linken Grove Ultrasonic Ranger
 - VCC des rechten Grove Ultrasonic Ranger
-- VCC des TB6612FNG-Motortreibers
 
-Der linke Grove Ultrasonic Ranger wird separat direkt über den physischen Pin 1 des Raspberry Pi mit 3,3 V versorgt.
-
-Grund dafür ist, die fehlende Anzahl 3.3V Pins
-
+Die Aufteilung ist erforderlich, da am Raspberry Pi nur eine begrenzte Anzahl an direkten 3,3-V-Anschlüssen zur Verfügung steht.
 ## Weitere Schnittstellen
 
 Die Raspberry Pi Camera Module 3 Wide ist nicht über die GPIO-Pinleiste angeschlossen. Die Verbindung zum Raspberry Pi erfolgt über die CSI-Schnittstelle.
