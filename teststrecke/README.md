@@ -1,7 +1,7 @@
 # Teststrecke
 
-Dieser Ordner dokumentiert die praktischen Fahrversuche des autonomen Fahrzeugs auf der Teststrecke.
+Dieser Ordner dokumentiert die schrittweise praktische Entwicklung und Erprobung des Fahrzeugs auf der aufgebauten Teststrecke.
 
-Mithilfe von Bildern und Videos werden verschiedene Tests und Parametereinstellungen festgehalten. Dazu gehören unter anderem die Abstimmung der Geradeausfahrt, unterschiedliche Fahrgeschwindigkeiten sowie das Verhalten bei Links- und Rechtskurven.
+Die durchgeführten Versuche dienen dazu, das Fahrverhalten unter realen Bedingungen zu untersuchen, geeignete Parameter zu bestimmen und entwickelte Funktionen praktisch zu überprüfen.
 
-Die dokumentierten Versuche dienen dazu, geeignete Fahrparameter für die spätere autonome Fahrzeugsteuerung zu ermitteln und das erreichte Fahrverhalten nachvollziehbar festzuhalten.
+Die einzelnen Tests werden mit den verwendeten Testprogrammen sowie ergänzenden Bildern, Videos und Ergebnissen dokumentiert. Die daraus gewonnenen Erkenntnisse bilden die Grundlage für die spätere Umsetzung und Abstimmung der eigentlichen Fahrzeugsoftware.
