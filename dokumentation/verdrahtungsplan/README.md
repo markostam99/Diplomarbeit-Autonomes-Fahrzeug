@@ -22,7 +22,7 @@ Die Versorgung des Antriebs und des Raspberry Pi erfolgt getrennt.
 
 Der TB6612FNG und die beiden DC-Motoren werden über einen separaten 4×AA-NiMH-Akkupack versorgt.
 
-Die 3,3-V-Logikversorgung des Motortreibers sowie ein Ultraschallsensor werden über eine Breadboard-Verteilung vom Raspberry Pi gespeist. Da keine 3,3V Pins mehr vorhanden waren im Pin-Layout des Raspberry Pi´s.
+Die 3,3-V VCC der beiden Ultraschallsensoren werden über eine Breadboard-Verteilung vom Raspberry Pi gespeist. Da keine 3,3V Pins mehr vorhanden waren im Pin-Layout des Raspberry Pi´s.
 
 Die verschiedenen Schaltungsteile besitzen eine gemeinsame Masse.
 
