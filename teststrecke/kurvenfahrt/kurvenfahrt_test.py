@@ -17,7 +17,7 @@ PWM_GERADE_LINKS = 70
 PWM_GERADE_RECHTS = 67
 GERADE_DAUER = 2
 
-# Linkskurve
+# Linkskurve/ Rechtskurve
 PWM_KURVE_LINKS = 20
 PWM_KURVE_RECHTS = 70
 KURVENDAUER = 0.8
@@ -44,7 +44,7 @@ try:
 
     time.sleep(GERADE_DAUER)
 
-    # Linkskurve
+    # Linkskurve/ Rechtskurve
     lgpio.tx_pwm(h, PWMA, 1000, PWM_KURVE_LINKS)
     lgpio.tx_pwm(h, PWMB, 1000, PWM_KURVE_RECHTS)
 
