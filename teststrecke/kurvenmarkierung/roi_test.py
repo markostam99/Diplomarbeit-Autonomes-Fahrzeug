@@ -9,6 +9,7 @@ bilder = [
     "blau_nah.jpg",
     "blau_schraeg_links.jpg",
     "blau_schraeg_rechts.jpg"
+    "weit_block.jpg",
 ]
 
 ausgabe_ordner = os.path.join(bilder_ordner, "roi_test")
