@@ -28,8 +28,8 @@ hoehe, breite = bild.shape[:2]
 y_start = int(hoehe * 0.33)
 roi = bild[y_start:hoehe, 0:breite]
 
-# RGB -> HSV
-hsv = cv2.cvtColor(roi, cv2.COLOR_RGB2HSV)
+# BGR -> HSV
+hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
 
 # HSV-Bereich für Blau
 blau_unten = np.array([108, 80, 40])
@@ -41,11 +41,11 @@ maske_blau = cv2.inRange(hsv, blau_unten, blau_oben)
 # Blaue Pixel zählen
 blaue_pixel = cv2.countNonZero(maske_blau)
 
-print("-----------------------------")
-print(f"Erkannte blaue Pixel: {blaue_pixel}")
-
 # HSV-Werte der erkannten blauen Pixel
 erkannte_pixel = hsv[maske_blau > 0]
+
+print("-----------------------------")
+print(f"Erkannte blaue Pixel: {blaue_pixel}")
 
 if len(erkannte_pixel) > 0:
     median = np.median(erkannte_pixel, axis=0)
