@@ -20,10 +20,10 @@ bild = picam2.capture_array()
 
 picam2.stop()
 
-# Kamera ist um 180° montiert
+# Kamera 180° Rotation
 bild = cv2.rotate(bild, cv2.ROTATE_180)
 
-# ROI: untere 67 % des Bildes
+# ROI
 hoehe, breite = bild.shape[:2]
 y_start = int(hoehe * 0.33)
 roi = bild[y_start:hoehe, 0:breite]
@@ -31,7 +31,7 @@ roi = bild[y_start:hoehe, 0:breite]
 # BGR -> HSV
 hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
 
-# HSV-Bereich für Blau
+# HSV-Bereich Blau
 blau_unten = np.array([108, 80, 40])
 blau_oben = np.array([118, 255, 255])
 
