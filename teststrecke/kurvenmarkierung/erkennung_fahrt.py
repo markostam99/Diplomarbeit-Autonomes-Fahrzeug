@@ -28,15 +28,15 @@ PWM_FREQUENZ = 1000
 PWM_LINKS_GERADE = 70
 PWM_RECHTS_GERADE = 67
 
-# Linkskurve
-PWM_LINKS_KURVE = 20
-PWM_RECHTS_KURVE = 70
+# Rechtskurve
+PWM_LINKS_KURVE = 70
+PWM_RECHTS_KURVE = 20
 KURVENZEIT = 0.8
 
-# Blauerkennung
-SCHWELLENWERT = 15000
+# Orangenerkennung
+SCHWELLENWERT = 13000
 
-# Hier ermittelten Wert eintragen
+# Verzögerung nach Erkennung
 VERZOEGERUNG = 0.8
 
 # -----------------------------
@@ -76,13 +76,13 @@ picam2.start()
 time.sleep(2)
 
 # -----------------------------
-# HSV-Bereich Blau
+# HSV-Bereich Orange
 # -----------------------------
 
-blau_unten = np.array([108, 80, 40])
-blau_oben = np.array([118, 255, 255])
+orange_unten = np.array([3, 120, 120])
+orange_oben = np.array([12, 255, 255])
 
-print("Test Kurvenauslösung gestartet.")
+print("Test Kurvenauslösung Orange gestartet.")
 print(f"Schwellenwert: {SCHWELLENWERT} Pixel")
 
 try:
@@ -135,37 +135,39 @@ try:
             cv2.COLOR_BGR2HSV
         )
 
-        # Blaue Farbmaske
-        maske_blau = cv2.inRange(
+        # Orange Farbmaske
+        maske_orange = cv2.inRange(
             hsv,
-            blau_unten,
-            blau_oben
+            orange_unten,
+            orange_oben
         )
 
-        # Blaue Pixel zählen
-        blaue_pixel = cv2.countNonZero(
-            maske_blau
+        # Orange Pixel zählen
+        orange_pixel = cv2.countNonZero(
+            maske_orange
         )
+
+        print(f"Orange Pixel: {orange_pixel}")
 
         # -----------------------------
         # Kurvenmarkierung erkannt
         # -----------------------------
 
-        if blaue_pixel >= SCHWELLENWERT:
+        if orange_pixel >= SCHWELLENWERT:
 
             print("-----------------------------")
-            print("BLAUE MARKIERUNG ERKANNT")
-            print(f"Pixel: {blaue_pixel}")
+            print("ORANGE MARKIERUNG ERKANNT")
+            print(f"Pixel: {orange_pixel}")
             print("-----------------------------")
 
             # Noch geradeaus weiterfahren
             time.sleep(VERZOEGERUNG)
 
             # -----------------------------
-            # Linkskurve ausführen
+            # Rechtskurve ausführen
             # -----------------------------
 
-            print("Linkskurve wird ausgeführt.")
+            print("Rechtskurve wird ausgeführt.")
 
             lgpio.tx_pwm(
                 h, PWMA,
