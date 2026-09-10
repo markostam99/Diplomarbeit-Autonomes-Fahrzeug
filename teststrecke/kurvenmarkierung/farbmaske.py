@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # Referenzbild laden
-bild_pfad = "bilder/referenzbilder/blau_schraeg_rechts.jpg"
+bild_pfad = "bilder/referenzbilder/orange_kurve4_nah.jpg"
 bild = cv2.imread(bild_pfad)
 
 if bild is None:
@@ -20,18 +20,18 @@ roi = bild[y_start:hoehe, 0:breite]
 # ROI von BGR nach HSV umwandeln
 hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
 
-# Vorläufiger HSV-Bereich für Blau
-blau_unten = np.array([108, 120, 70])
-blau_oben = np.array([118, 255, 130])
+# Vorläufiger HSV-Bereich für Orange
+orange_unten = np.array([3, 120, 120])
+orange_oben = np.array([12, 255, 255])
 
 # Farbmaske erstellen
-maske_blau = cv2.inRange(hsv, blau_unten, blau_oben)
+maske_orange = cv2.inRange(hsv, orange_unten, orange_oben)
 
 # Ausgabeordner erstellen
 os.makedirs("bilder/farbmaske", exist_ok=True)
 
 # Farbmaske speichern
-ausgabe = "bilder/farbmaske/maske_blau_schraeg_rechts.jpg"
-cv2.imwrite(ausgabe, maske_blau)
+ausgabe = "bilder/farbmaske/maske_orange_kurve4_nah.jpg"
+cv2.imwrite(ausgabe, maske_orange)
 
 print(f"Farbmaske erstellt: {ausgabe}")
