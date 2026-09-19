@@ -12,7 +12,7 @@ PWMB = 13
 STBY = 22
 
 PWM_LINKS = 70
-PWM_RECHTS = 67
+PWM_RECHTS = 71
 DAUER = 7
 
 h = lgpio.gpiochip_open(0)
