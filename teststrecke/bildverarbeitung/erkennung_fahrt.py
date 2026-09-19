@@ -31,13 +31,16 @@ PWM_RECHTS_GERADE = 71
 # Rechtskurve
 PWM_LINKS_KURVE = 73
 PWM_RECHTS_KURVE = 10
-KURVENZEIT = 1
+KURVENZEIT = 0.9
 
 # Orangenerkennung
 SCHWELLENWERT = 13000
 
 # Verzögerung nach Erkennung
 VERZOEGERUNG = 0.8
+
+# Weiterfahrt nach der Kurve
+WEITERFAHRTZEIT = 3.0
 
 # -----------------------------
 # GPIO initialisieren
@@ -160,7 +163,7 @@ try:
             print(f"Pixel: {orange_pixel}")
             print("-----------------------------")
 
-            # Noch geradeaus weiterfahren
+            # Noch 0,8 Sekunden geradeaus weiterfahren
             time.sleep(VERZOEGERUNG)
 
             # -----------------------------
@@ -184,20 +187,26 @@ try:
             time.sleep(KURVENZEIT)
 
             # -----------------------------
-            # Nach der Kurve stoppen
+            # Nach der Kurve weiterfahren
             # -----------------------------
+
+            print("Geradeausfahrt nach Kurve")
 
             lgpio.tx_pwm(
                 h, PWMA,
-                PWM_FREQUENZ, 0
+                PWM_FREQUENZ,
+                PWM_LINKS_GERADE
             )
 
             lgpio.tx_pwm(
                 h, PWMB,
-                PWM_FREQUENZ, 0
+                PWM_FREQUENZ,
+                PWM_RECHTS_GERADE
             )
 
-            print("Kurvenfahrt abgeschlossen.")
+            time.sleep(WEITERFAHRTZEIT)
+
+            print("Test abgeschlossen.")
             break
 
 except KeyboardInterrupt:
