@@ -24,23 +24,11 @@ PWM_FREQUENZ = 1000
 # Fahrparameter
 # -----------------------------
 
-# Geradeausfahrt
 PWM_LINKS_GERADE = 70
 PWM_RECHTS_GERADE = 71
 
-# Rechtskurve
-PWM_LINKS_KURVE = 73
-PWM_RECHTS_KURVE = 10
-KURVENZEIT = 0.9
-
-# Orangenerkennung
-SCHWELLENWERT = 13000
-
-# Verzögerung nach Erkennung
-VERZOEGERUNG = 0.8
-
-# Weiterfahrt nach der Kurve
-WEITERFAHRTZEIT = 3.0
+# Vorläufiger Schwellenwert Grün
+SCHWELLENWERT = 10000
 
 # -----------------------------
 # GPIO initialisieren
@@ -79,21 +67,18 @@ picam2.start()
 time.sleep(2)
 
 # -----------------------------
-# HSV-Bereich Orange
+# HSV-Bereich Grün
 # -----------------------------
 
-orange_unten = np.array([3, 120, 120])
-orange_oben = np.array([12, 255, 255])
+gruen_unten = np.array([60, 100, 30])
+gruen_oben = np.array([70, 255, 180])
 
-print("Test Kurvenauslösung Orange gestartet.")
-print(f"Schwellenwert: {SCHWELLENWERT} Pixel")
+print("Dynamischer Test Grün gestartet.")
+print(f"Vorläufiger Schwellenwert: {SCHWELLENWERT} Pixel")
 
 try:
 
-    # -----------------------------
     # Geradeausfahrt starten
-    # -----------------------------
-
     lgpio.tx_pwm(
         h, PWMA,
         PWM_FREQUENZ,
@@ -138,75 +123,42 @@ try:
             cv2.COLOR_BGR2HSV
         )
 
-        # Orange Farbmaske
-        maske_orange = cv2.inRange(
+        # Grüne Farbmaske
+        maske_gruen = cv2.inRange(
             hsv,
-            orange_unten,
-            orange_oben
+            gruen_unten,
+            gruen_oben
         )
 
-        # Orange Pixel zählen
-        orange_pixel = cv2.countNonZero(
-            maske_orange
+        # Grüne Pixel zählen
+        gruen_pixel = cv2.countNonZero(
+            maske_gruen
         )
 
-        print(f"Orange Pixel: {orange_pixel}")
+        print(f"Grüne Pixel: {gruen_pixel}")
 
         # -----------------------------
-        # Kurvenmarkierung erkannt
+        # Grünes Hindernis erkannt
         # -----------------------------
 
-        if orange_pixel >= SCHWELLENWERT:
+        if gruen_pixel >= SCHWELLENWERT:
 
             print("-----------------------------")
-            print("ORANGE MARKIERUNG ERKANNT")
-            print(f"Pixel: {orange_pixel}")
+            print("GRÜNES HINDERNIS ERKANNT")
+            print(f"Pixel: {gruen_pixel}")
             print("-----------------------------")
 
-            # Noch 0,8 Sekunden geradeaus weiterfahren
-            time.sleep(VERZOEGERUNG)
-
-            # -----------------------------
-            # Rechtskurve ausführen
-            # -----------------------------
-
-            print("Rechtskurve wird ausgeführt.")
-
+            # Fahrzeug stoppen
             lgpio.tx_pwm(
                 h, PWMA,
-                PWM_FREQUENZ,
-                PWM_LINKS_KURVE
+                PWM_FREQUENZ, 0
             )
 
             lgpio.tx_pwm(
                 h, PWMB,
-                PWM_FREQUENZ,
-                PWM_RECHTS_KURVE
+                PWM_FREQUENZ, 0
             )
 
-            time.sleep(KURVENZEIT)
-
-            # -----------------------------
-            # Nach der Kurve weiterfahren
-            # -----------------------------
-
-            print("Geradeausfahrt nach Kurve")
-
-            lgpio.tx_pwm(
-                h, PWMA,
-                PWM_FREQUENZ,
-                PWM_LINKS_GERADE
-            )
-
-            lgpio.tx_pwm(
-                h, PWMB,
-                PWM_FREQUENZ,
-                PWM_RECHTS_GERADE
-            )
-
-            time.sleep(WEITERFAHRTZEIT)
-
-            print("Test abgeschlossen.")
             break
 
 except KeyboardInterrupt:

@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import os
 
-bild_pfad = "bilder/referenzbilder/orange_kurve4_nah.jpg"
+bild_pfad = "bilder/referenzbilder/gruen_hindernis4.jpg"
 
 bild = cv2.imread(bild_pfad)
 
@@ -13,10 +13,10 @@ if bild is None:
 # Bild in HSV umwandeln
 hsv = cv2.cvtColor(bild, cv2.COLOR_BGR2HSV)
 
-# Kleiner Testbereich auf der orangen Markierung
-# Werte an die Position der Markierung im Bild anpassen
-x1, y1 = 3400, 1480
-x2, y2 = 3550, 1510
+# Kleiner Testbereich auf dem grünen Hindernis
+# Werte an die Position des Hindernisses im Bild anpassen
+x1, y1 = 2000, 1000
+x2, y2 = 2300, 1700
 
 bereich = hsv[y1:y2, x1:x2]
 
@@ -29,7 +29,7 @@ if len(farbige_pixel) == 0:
 else:
     median = np.median(farbige_pixel, axis=0)
 
-    print("HSV-Wert Orange")
+    print("HSV-Wert Grün")
     print("----------------")
     print(f"H: {median[0]:.1f}")
     print(f"S: {median[1]:.1f}")
@@ -49,7 +49,7 @@ cv2.rectangle(
 os.makedirs("bilder/hsv_test", exist_ok=True)
 
 cv2.imwrite(
-    "bilder/hsv_test/hsv_orange_kurve4_nah.jpg",
+    "bilder/hsv_test/hsv_gruen_hindernis4.jpg",
     kontrollbild
 )
 

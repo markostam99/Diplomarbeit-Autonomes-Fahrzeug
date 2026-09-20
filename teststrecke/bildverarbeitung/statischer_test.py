@@ -31,21 +31,25 @@ roi = bild[y_start:hoehe, 0:breite]
 # BGR -> HSV
 hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
 
-# HSV-Bereich Orange
-orange_unten = np.array([3, 120, 120])
-orange_oben = np.array([12, 255, 255])
+# HSV-Bereich Grün
+gruen_unten = np.array([60, 100, 30])
+gruen_oben = np.array([70, 255, 150])
 
 # Farbmaske erstellen
-maske_orange = cv2.inRange(hsv, orange_unten, orange_oben)
+maske_gruen = cv2.inRange(
+    hsv,
+    gruen_unten,
+    gruen_oben
+)
 
-# Orange Pixel zählen
-orange_pixel = cv2.countNonZero(maske_orange)
+# Grüne Pixel zählen
+gruen_pixel = cv2.countNonZero(maske_gruen)
 
-# HSV-Werte der erkannten orangen Pixel
-erkannte_pixel = hsv[maske_orange > 0]
+# HSV-Werte der erkannten grünen Pixel
+erkannte_pixel = hsv[maske_gruen > 0]
 
 print("-----------------------------")
-print(f"Erkannte orange Pixel: {orange_pixel}")
+print(f"Erkannte grüne Pixel: {gruen_pixel}")
 
 if len(erkannte_pixel) > 0:
     median = np.median(erkannte_pixel, axis=0)
@@ -54,6 +58,6 @@ if len(erkannte_pixel) > 0:
     print(f"S: {median[1]:.1f}")
     print(f"V: {median[2]:.1f}")
 else:
-    print("Keine orangen Pixel erkannt.")
+    print("Keine grünen Pixel erkannt.")
 
 print("-----------------------------")
