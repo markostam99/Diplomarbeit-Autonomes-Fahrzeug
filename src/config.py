@@ -45,7 +45,7 @@ C_TIME = 1.0
 # Wandkorrektur
 WALL_DIST = 10
 
-# Ansteuerung L/R
+# Ansteuerung High/Low
 PWM_CORH = 75
 PWM_CORL = 45
 
