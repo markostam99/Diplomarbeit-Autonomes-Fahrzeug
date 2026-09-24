@@ -6,8 +6,10 @@ from config import AIN1, AIN2, PWMA, BIN1, BIN2, PWMB, STBY, PWM_FREQ
 h = lgpio.gpiochip_open(0)
 lgpio.gpio_claim_output(h, AIN1)
 lgpio.gpio_claim_output(h, AIN2)
+lgpio.gpio_claim_output(h, PWMA)
 lgpio.gpio_claim_output(h, BIN1)
 lgpio.gpio_claim_output(h, BIN2)
+lgpio.gpio_claim_output(h, PWMB)
 lgpio.gpio_claim_output(h, STBY)
 
 #Motortreiber aktivieren
