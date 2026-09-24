@@ -18,13 +18,19 @@ def measure(pin):
     lgpio.gpio_free(h, pin)
     lgpio.gpio_claim_input(h, pin)
 
+    #Auf Echo warten
+    timeout = time.time() + 0.03
     while lgpio.gpio_read(h, pin) == 0:
-        pass
+        if time.time() > timeout:
+            return None
 
     start = time.time()
 
+    #Auf Ende des Echos warten
+    timeout = time.time() + 0.03
     while lgpio.gpio_read(h, pin) == 1:
-        pass
+        if time.time() > timeout:
+            return None
 
     end = time.time()
 
