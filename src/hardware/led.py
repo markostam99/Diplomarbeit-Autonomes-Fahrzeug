@@ -1,5 +1,4 @@
 import lgpio
-
 from config import LED_RED, LED_GREEN
 
 #GPIO Chip öffnen
