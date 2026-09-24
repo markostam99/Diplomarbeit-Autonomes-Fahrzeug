@@ -1,5 +1,4 @@
 import lgpio  
-
 from config import AIN1, AIN2, PWMA, BIN1, BIN2, PWMB, STBY, PWM_FREQ
 
 #GPIO Chip öffnen
