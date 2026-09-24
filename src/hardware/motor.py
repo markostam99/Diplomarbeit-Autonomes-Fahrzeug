@@ -17,30 +17,30 @@ lgpio.gpio_write(h, STBY, 1)
 
 
 def set_motors(left_speed, right_speed):
-  #Fahrtrichtung vorwärts bestimmen
-  lgpio.gpio_write(h, AIN1, 0)
-  lgpio.gpio_write(h, AIN2, 1)
-  lgpio.gpio_write(h, BIN1, 0)
-  lgpio.gpio_write(h, BIN2, 1)
+    #Fahrtrichtung vorwärts bestimmen
+    lgpio.gpio_write(h, AIN1, 0)
+    lgpio.gpio_write(h, AIN2, 1)
+    lgpio.gpio_write(h, BIN1, 0)
+    lgpio.gpio_write(h, BIN2, 1)
   
-  #Motorgeschwindigkeit
-  lgpio.tx_pwm(h, PWMA, PWM_FREQ, left_speed)
-  lgpio.tx_pwm(h, PWMB, PWM_FREQ, right_speed)
+    #Motorgeschwindigkeit
+    lgpio.tx_pwm(h, PWMA, PWM_FREQ, left_speed)
+    lgpio.tx_pwm(h, PWMB, PWM_FREQ, right_speed)
 
 def stop():
-  #PWM stoppen
-  lgpio.tx_pwm(h, PWMA, PWM_FREQ, 0)
-  lgpio.tx_pwm(h, PWMB, PWM_FREQ, 0)
+    #PWM stoppen
+    lgpio.tx_pwm(h, PWMA, PWM_FREQ, 0)
+    lgpio.tx_pwm(h, PWMB, PWM_FREQ, 0)
 
 def shutdown():
-  #Motoren stoppen
-  stop()
+    #Motoren stoppen
+    stop()
 
-  #Motortreiber deaktivieren
-  lgpio.gpio_write(h, STBY, 0)
+    #Motortreiber deaktivieren
+    lgpio.gpio_write(h, STBY, 0)
 
-  #GPIO Chip schliessen
-  lgpio.gpiochip_close(h)
+    #GPIO Chip schliessen
+    lgpio.gpiochip_close(h)
 
 
 
