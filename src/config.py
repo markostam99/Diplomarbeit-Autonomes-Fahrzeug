@@ -28,7 +28,7 @@ PWM_FREQ = 1000
 
 # Geradeausfahrt
 PWM_SL = 70
-PWM_RL = 71
+PWM_SR = 71
 
 # 90-Grad Kurve
 # Linkskurve
