@@ -20,6 +20,7 @@ LED_GREEN = 20
 
 # Starttaster
 BUTTON = 21
+DOUBLE_PRESS_TIME = 0.5
 
 
 # Fahrparameter
