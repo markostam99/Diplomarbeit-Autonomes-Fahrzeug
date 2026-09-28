@@ -75,10 +75,10 @@ try:
     time.sleep(GERADE_DAUER)
 
     # -----------------------------
-    # 90° Linkskurve
+    # 90° Rechtskurve   
     # -----------------------------
 
-    print("Linkskurve")
+    print("Rechtskurve")
 
     lgpio.tx_pwm(
         h,
