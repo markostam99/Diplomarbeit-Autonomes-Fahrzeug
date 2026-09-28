@@ -1,4 +1,5 @@
 import lgpio
+import time
 from config import LED_RED, LED_GREEN
 
 #GPIO Chip öffnen
@@ -22,6 +23,20 @@ def leds_off():
     #LEDs ausschalten
     lgpio.gpio_write(h, LED_RED, 0)
     lgpio.gpio_write(h, LED_GREEN, 0)
+
+def green_blink():
+    #Grüne LED blinken
+    lgpio.gpio_write(h, LED_GREEN, 1)
+    time.sleep(0.5)
+    lgpio.gpio_write(h, LED_GREEN, 0)
+    time.sleep(0.5)
+
+def red_blink():
+    #Rote LED blinken
+    lgpio.gpio_write(h, LED_RED, 1)
+    time.sleep(0.5)
+    lgpio.gpio_write(h, LED_RED, 0)
+    time.sleep(0.5)
 
 def shutdown():
     #LEDs ausschalten
