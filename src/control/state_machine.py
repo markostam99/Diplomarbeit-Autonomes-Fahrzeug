@@ -1,6 +1,6 @@
 import time
 from enum import Enum
-from config import DOUBLE_PRESS_TIME, WALL_DIST, MAX_CURVES, END_TIME
+from config import DOUBLE_PRESS_TIME, WALL_DIST, MAX_CURVES, END_TIME, CURVE_DELAY
 from hardware.camera import start as camera_start
 from hardware.led import green_on, red_on, leds_off
 from hardware.motor import stop
@@ -33,6 +33,9 @@ class StateMachine:
 
       #Kurvenzähler
       self.curve_count = 0
+
+      # Zeitpunkt der letzten Kurve
+      self.last_curve_time = 0
 
       #Erkannte Hindernisfarbe
       self.obstacle = None
@@ -140,11 +143,12 @@ class StateMachine:
           self.state = State.CORRECTION
           return
 
-      #Kurvenmarkierung
+      # Kurvenmarkierung
       if curve_detected:
-          self.state = State.TURN
-          return
-
+          if time.time() - self.last_curve_time >= CURVE_DELAY:
+              self.state = State.TURN
+              return
+        
       #Geradeausfahrt
       drive_straight()  
 
@@ -181,6 +185,9 @@ class StateMachine:
 
       #Kurvenzähler +1
       self.curve_count += 1 
+
+      # Zeitpunkt der Kurve speichern
+      self.last_curve_time = time.time()
 
       #Kurvenzähler prüfen
       if self.curve_count >= MAX_CURVES:
