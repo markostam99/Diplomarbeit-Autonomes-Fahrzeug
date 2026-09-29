@@ -127,3 +127,8 @@ GREEN_LOWER = [60, 100, 30]
 GREEN_UPPER = [70, 255, 180]
 
 GREEN_PX = 8000
+
+
+# State Machine
+MAX_CURVES = 4
+END_TIME = 2.0
