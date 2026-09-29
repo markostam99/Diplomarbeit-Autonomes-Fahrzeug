@@ -10,7 +10,8 @@ from hardware.ultrasonic import get_left, get_right
 from vision.image_processing import preprocess
 from vision.curve_detection import detect_blue, detect_orange
 from vision.obstacle_detection import detect_red, detect_green
-from control.navigation import drive_straight, correct_left, correct_right, turn_left, turn_right
+from control.navigation import drive_straight, correct_left, correct_right, turn_left, turn_right, evade_left, evade_right
+
 
 class State(Enum):
     INIT = 1
@@ -22,206 +23,240 @@ class State(Enum):
     END = 7
     ERROR = 8
 
+
 class StateMachine:
 
-  def __init__(self):
-      #Aktueller Zustand
-      self.state = State.INIT
+    def __init__(self):
+        #Aktueller Zustand
+        self.state = State.INIT
 
-      #Gewählter Fahrmodus
-      self.mode = None
+        #Gewählter Fahrmodus
+        self.mode = None
 
-      #Kurvenzähler
-      self.curve_count = 0
+        #Kurvenzähler
+        self.curve_count = 0
 
-      # Zeitpunkt der letzten Kurve
-      self.last_curve_time = 0
+        #Zeitpunkt der letzten Kurve
+        self.last_curve_time = 0
 
-      #Erkannte Hindernisfarbe
-      self.obstacle = None
+        #Erkannte Hindernisfarbe
+        self.obstacle = None
 
-      #Seite für Wandkorrektur
-      self.correction_side = None
-
-  def init_state(self):
-      #System initialisieren
-      try:
-          stop()
-          leds_off()
-          camera_start()
-
-          #In READY wechslen
-          self.state = State.READY
-
-      except Exception:
-          #Bei Fehler in ERROR wechslen
-          self.state = State.ERROR
-
-  def ready_state(self):
-      #Betriebsbereit
-      green_on()
-
-      #Auf Benutzereingabe warten
-      if not is_pressed():
-          return
-
-      #Erste Tasterbetätigung
-      while is_pressed():
-          time.sleep(0.01)
-
-      press_count = 1
-      start_time = time.time()
-
-      #Zweite Tasterbetätigung
-      while time.time() - start_time < DOUBLE_PRESS_TIME:
-          if is_pressed():
-              while is_pressed():
-                  time.sleep(0.01)
-
-              press_count = 2
-              break
-
-          time.sleep(0.01)
-
-      #Fahrmodus wählen
-      if press_count == 1:
-          self.mode = "BLUE"
-
-      elif press_count == 2:
-          self.mode = "ORANGE"
-
-      #Kurvenzähler auf 0
-      self.curve_count = 0 
-
-      #In DRIVE wechslen
-      self.state = State.DRIVE 
-
-  def drive_state(self):
-      #Kamerabilder aufnehmen und verarbeiten
-      frame = capture_frame()
-      hsv = preprocess(frame)
+        #Seite für Wandkorrektur
+        self.correction_side = None
+
+    def init_state(self):
+        #System initialisieren
+        try:
+            stop()
+            leds_off()
+            camera_start()
+
+            #In READY wechseln
+            self.state = State.READY
 
-      #Hindernisse erkennen
-      red_detected = detect_red(hsv)
-      green_detected = detect_green(hsv)
+        except Exception:
+            #Bei Fehler in ERROR wechseln
+            self.state = State.ERROR
+
+    def ready_state(self):
+        #Betriebsbereit
+        green_on()
+
+        #Auf Benutzereingabe warten
+        if not is_pressed():
+            return
+
+        #Erste Tasterbetätigung
+        while is_pressed():
+            time.sleep(0.01)
 
-      #Wandabstände messen
-      left_distance = get_left()
-      right_distance = get_right()
+        press_count = 1
+        start_time = time.time()
 
-      #Kurvenmarkierung
-      if self.mode == "BLUE":
-          curve_detected = detect_blue(hsv)
+        #Zweite Tasterbetätigung
+        while time.time() - start_time < DOUBLE_PRESS_TIME:
+            if is_pressed():
+                while is_pressed():
+                    time.sleep(0.01)
+
+                press_count = 2
+                break
 
-      elif self.mode == "ORANGE":
-          curve_detected = detect_orange(hsv)
+            time.sleep(0.01)
+
+        #Fahrmodus wählen
+        if press_count == 1:
+            self.mode = "BLUE"
 
-      #Ultraschallmessung prüfen
-      if left_distance is None or right_distance is None:
-          self.state = State.ERROR
-          return
+        elif press_count == 2:
+            self.mode = "ORANGE"
 
-      #Hindernis
-      if red_detected:
-          self.obstacle = "RED"
-          self.state = State.EVADE
-          return
+        #Kurvenzähler auf 0
+        self.curve_count = 0
 
-      elif green_detected:
-          self.obstacle = "GREEN"
-          self.state = State.EVADE
-          return
+        #In DRIVE wechseln
+        self.state = State.DRIVE
 
-      #Wandabstand
-      if left_distance < WALL_DIST:
-          self.correction_side = "LEFT"
-          self.state = State.CORRECTION
-          return
+    def drive_state(self):
+        #Kamerabild aufnehmen und verarbeiten
+        frame = capture_frame()
+        hsv = preprocess(frame)
 
-      elif right_distance < WALL_DIST:
-          self.correction_side = "RIGHT"
-          self.state = State.CORRECTION
-          return
+        #Hindernisse erkennen
+        red_detected = detect_red(hsv)
+        green_detected = detect_green(hsv)
 
-      # Kurvenmarkierung
-      if curve_detected:
-          if time.time() - self.last_curve_time >= CURVE_DELAY:
-              self.state = State.TURN
-              return
-        
-      #Geradeausfahrt
-      drive_straight()  
+        #Wandabstände messen
+        left_distance = get_left()
+        right_distance = get_right()
 
-  def correction_state(self):
-      #Wand links gering
-      if self.correction_side == "LEFT":
-          correct_right()
+        #Kurvenmarkierung
+        if self.mode == "BLUE":
+            curve_detected = detect_blue(hsv)
 
-      #Wand rechts gering
-      elif self.correction_side == "RIGHT":
-          correct_left()
+        elif self.mode == "ORANGE":
+            curve_detected = detect_orange(hsv)
 
-      else:
-          self.state = State.ERROR
-          return
+        #Ultraschallmessung prüfen
+        if left_distance is None or right_distance is None:
+            self.state = State.ERROR
+            return
 
-      #Korrekturseite zurücksetzen
-      self.correction_side = None
+        #Hindernis
+        if red_detected:
+            self.obstacle = "RED"
+            self.state = State.EVADE
+            return
 
-      #In DRIVE wechseln
-      self.state = State.DRIVE
+        elif green_detected:
+            self.obstacle = "GREEN"
+            self.state = State.EVADE
+            return
 
-  def turn_state(self):
-      #Kurve anhand des Fahrmodus ausführen
-      if self.mode == "BLUE":
-          turn_left()
+        #Wandabstand
+        if left_distance < WALL_DIST:
+            self.correction_side = "LEFT"
+            self.state = State.CORRECTION
+            return
+
+        elif right_distance < WALL_DIST:
+            self.correction_side = "RIGHT"
+            self.state = State.CORRECTION
+            return
 
-      elif self.mode == "ORANGE":
-          turn_right()
+        #Kurvenmarkierung
+        if curve_detected:
+            if time.time() - self.last_curve_time >= CURVE_DELAY:
+                self.state = State.TURN
+                return
 
-      else:
-          self.state = State.ERROR
-          return
+        #Geradeausfahrt
+        drive_straight()
 
-      #Kurvenzähler +1
-      self.curve_count += 1 
+    def correction_state(self):
+        #Wand links gering
+        if self.correction_side == "LEFT":
+            correct_right()
 
-      # Zeitpunkt der Kurve speichern
-      self.last_curve_time = time.time()
+        #Wand rechts gering
+        elif self.correction_side == "RIGHT":
+            correct_left()
 
-      #Kurvenzähler prüfen
-      if self.curve_count >= MAX_CURVES:
-          self.state = State.END
+        else:
+            self.state = State.ERROR
+            return
 
-      else:
-          self.state = State.DRIVE
-          
+        #Korrekturseite zurücksetzen
+        self.correction_side = None
 
-      
+        #In DRIVE wechseln
+        self.state = State.DRIVE
 
+    def turn_state(self):
+        #Kurve anhand des Fahrmodus ausführen
+        if self.mode == "BLUE":
+            turn_left()
 
-      
-          
+        elif self.mode == "ORANGE":
+            turn_right()
 
+        else:
+            self.state = State.ERROR
+            return
 
+        #Kurvenzähler +1
+        self.curve_count += 1
 
+        #Zeitpunkt der Kurve speichern
+        self.last_curve_time = time.time()
 
+        #Kurvenzähler prüfen
+        if self.curve_count >= MAX_CURVES:
+            self.state = State.END
 
+        else:
+            self.state = State.DRIVE
 
+    def evade_state(self):
+        #Hindernis rechts umfahren
+        if self.obstacle == "RED":
+            evade_right()
 
+        #Hindernis links umfahren
+        elif self.obstacle == "GREEN":
+            evade_left()
 
+        else:
+            self.state = State.ERROR
+            return
 
+        #Hindernis zurücksetzen
+        self.obstacle = None
 
+        #In DRIVE wechseln
+        self.state = State.DRIVE
 
+    def end_state(self):
+        #Noch geradeausfahren
+        drive_straight()
+        time.sleep(END_TIME)
 
+        #Fahrzeug stoppen
+        stop()
 
+        #In READY wechseln
+        self.state = State.READY
 
+    def error_state(self):
+        #Fahrzeug stoppen
+        stop()
 
+        #Fehler anzeigen
+        red_on()
 
+    def run(self):
+        #Aktuellen Zustand ausführen
+        if self.state == State.INIT:
+            self.init_state()
 
+        elif self.state == State.READY:
+            self.ready_state()
 
+        elif self.state == State.DRIVE:
+            self.drive_state()
 
+        elif self.state == State.CORRECTION:
+            self.correction_state()
 
+        elif self.state == State.TURN:
+            self.turn_state()
 
+        elif self.state == State.EVADE:
+            self.evade_state()
 
-      
+        elif self.state == State.END:
+            self.end_state()
+
+        elif self.state == State.ERROR:
+            self.error_state()
