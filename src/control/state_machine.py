@@ -36,9 +36,6 @@ class StateMachine:
         #Kurvenzähler
         self.curve_count = 0
 
-        #Zeitpunkt der letzten Kurve
-        self.last_curve_time = 0
-
         #Erkannte Hindernisfarbe
         self.obstacle = None
 
@@ -118,11 +115,6 @@ class StateMachine:
         elif self.mode == "ORANGE":
             curve_detected = detect_orange(hsv)
 
-        #Ultraschallmessung prüfen
-        if left_distance is None or right_distance is None:
-            self.state = State.ERROR
-            return
-
         #Hindernis
         if red_detected:
             self.obstacle = "RED"
@@ -135,21 +127,22 @@ class StateMachine:
             return
 
         #Wandabstand
-        if left_distance < WALL_DIST:
+        if left_distance is not None and left_distance < WALL_DIST:
             self.correction_side = "LEFT"
             self.state = State.CORRECTION
             return
 
-        elif right_distance < WALL_DIST:
+        elif right_distance is not None and right_distance < WALL_DIST:
             self.correction_side = "RIGHT"
             self.state = State.CORRECTION
             return
 
         #Kurvenmarkierung
         if curve_detected:
-            if time.time() - self.last_curve_time >= CURVE_DELAY:
-                self.state = State.TURN
-                return
+            drive_straight()
+            time.sleep(CURVE_DELAY)
+            self.state = State.TURN
+            return
 
         #Geradeausfahrt
         drive_straight()
@@ -187,9 +180,6 @@ class StateMachine:
 
         #Kurvenzähler +1
         self.curve_count += 1
-
-        #Zeitpunkt der Kurve speichern
-        self.last_curve_time = time.time()
 
         #Kurvenzähler prüfen
         if self.curve_count >= MAX_CURVES:
@@ -234,6 +224,20 @@ class StateMachine:
 
         #Fehler anzeigen
         red_on()
+
+        #Auf Tasterbetätigung warten
+        if not is_pressed():
+            return
+
+        #Warten bis Taster losgelassen wird
+        while is_pressed():
+            time.sleep(0.01)
+
+        #LEDs ausschalten
+        leds_off()
+
+        #In READY wechseln
+        self.state = State.READY
 
     def run(self):
         #Aktuellen Zustand ausführen

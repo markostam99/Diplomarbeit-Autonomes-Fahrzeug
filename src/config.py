@@ -109,7 +109,7 @@ ORANGE_UPPER = [12, 255, 255]
 ORANGE_PX = 13000
 
 # Verzögerung nach Erkennung
-CURVE_DELAY = 0.8 
+CURVE_DELAY = 1.2
 
 
 # Hinderniserkennung
