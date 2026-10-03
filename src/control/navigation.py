@@ -1,7 +1,7 @@
 import time
 from hardware.motor import set_motors, stop
 from config import PWM_SL, PWM_SR
-from config import PWM_CLL, PWM_CLR, PWM_CRL, PWM_CRR, C_TIME
+from config import PWM_CLL, PWM_CLR, PWM_CRL, PWM_CRR, C_TIME_LEFT, C_TIME_RIGHT
 from config import PWM_CORH, PWM_CORL, CORR_TIME
 from config import EV_L1_L, EV_L1_R, EV_L1_TIME
 from config import EV_L2_L, EV_L2_R, EV_L2_TIME
@@ -17,13 +17,13 @@ def drive_straight():
 def turn_left():
     #90 Grad Linkskurve
     set_motors(PWM_CLL, PWM_CLR)
-    time.sleep(C_TIME)
+    time.sleep(C_TIME_LEFT)
     stop()
 
 def turn_right():
     #90 Grad Rechtskurve
     set_motors(PWM_CRL, PWM_CRR)
-    time.sleep(C_TIME)
+    time.sleep(C_TIME_RIGHT)
     stop()
 
 def correct_left():

@@ -2,7 +2,7 @@ import time
 from enum import Enum
 from config import DOUBLE_PRESS_TIME, WALL_DIST, MAX_CURVES, END_TIME, CURVE_DELAY
 from hardware.camera import start as camera_start
-from hardware.led import green_on, red_on, leds_off
+from hardware.led import green_on, red_on, leds_off, red_off
 from hardware.motor import stop
 from hardware.button import is_pressed
 from hardware.camera import capture_frame
@@ -148,6 +148,10 @@ class StateMachine:
         drive_straight()
 
     def correction_state(self):
+
+        #Korrektur anzeigen
+        red_on()
+
         #Wand links gering
         if self.correction_side == "LEFT":
             correct_right()
@@ -159,6 +163,8 @@ class StateMachine:
         else:
             self.state = State.ERROR
             return
+
+        red_off()
 
         #Korrekturseite zurücksetzen
         self.correction_side = None

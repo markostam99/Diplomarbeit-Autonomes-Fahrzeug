@@ -41,7 +41,8 @@ PWM_CRL = 73
 PWM_CRR = 10
 
 # Kurvendauer
-C_TIME = 1.0
+C_TIME_LEFT = 1.2
+C_TIME_RIGHT = 1.2
 
 # Wandkorrektur
 WALL_DIST = 10
