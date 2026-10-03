@@ -41,8 +41,8 @@ PWM_CRL = 73
 PWM_CRR = 10
 
 # Kurvendauer
-C_TIME_LEFT = 1.2
-C_TIME_RIGHT = 1.2
+C_TIME_LEFT = 1.25
+C_TIME_RIGHT = 1.25
 
 # Wandkorrektur
 WALL_DIST = 10
@@ -59,34 +59,34 @@ CORR_TIME = 0.25
 # Ausweichen links
 # Links ausweichen
 EV_L1_L = 40
-EV_L1_R = 76
+EV_L1_R = 80
 EV_L1_TIME = 1.0
 
 # Rechts ausrichten
 EV_L2_L = 75
 EV_L2_R = 40
-EV_L2_TIME = 1.9
+EV_L2_TIME = 2.35
 
 # Endkorrektur
 EV_L3_L = 40
-EV_L3_R = 76
-EV_L3_TIME = 1.0
+EV_L3_R = 80
+EV_L3_TIME = 1.2
 
 # Ausweichen Rechts
 # Rechts ausweichen
-EV_R1_L = 75
+EV_R1_L = 79
 EV_R1_R = 40
 EV_R1_TIME = 1.0
 
 # Links ausrichten
 EV_R2_L = 40
 EV_R2_R = 76
-EV_R2_TIME = 1.9
+EV_R2_TIME = 2.35
 
 # Endkorrektur
-EV_R3_L = 75
+EV_R3_L = 79
 EV_R3_R = 40
-EV_R3_TIME = 1.0
+EV_R3_TIME = 1.2
 
 
 # Kamera
