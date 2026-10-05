@@ -38,7 +38,7 @@ PWM_CLR = 73
 
 # Rechtskurve
 PWM_CRL = 73
-PWM_CRR = 10
+PWM_CRR = 11
 
 # Kurvendauer
 C_TIME_LEFT = 1.25
