@@ -1,1 +1,12 @@
-lgpio = 0.2.2.0
+
+# Python-Abhängigkeiten des autonomen Fahrzeugs
+#
+# Die folgenden Bibliotheken werden unter Raspberry Pi OS
+# über die Systempaketverwaltung (APT) bereitgestellt:
+#
+# python3-lgpio      0.2.2
+# python3-opencv     4.10.0
+# python3-picamera2  0.3.36
+#
+# Installation:
+# sudo apt install python3-lgpio python3-opencv python3-picamera2
