@@ -1,4 +1,4 @@
-# Teststrecke
+# Tests
 
 Dieser Ordner dokumentiert die schrittweise praktische Entwicklung und Erprobung des Fahrzeugs auf der aufgebauten Teststrecke.
 
