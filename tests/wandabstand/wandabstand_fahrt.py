@@ -17,7 +17,7 @@ US_LINKS = 17
 US_RECHTS = 27
 
 PWM_LINKS = 70
-PWM_RECHTS = 67
+PWM_RECHTS = 71
 DAUER = 5
 
 h = lgpio.gpiochip_open(0)
