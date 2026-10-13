@@ -22,7 +22,7 @@ Um die Messwerte zu prüfen wurde `ultrasonic_both.py` verwendet.
 
 ## 2. Abstandsmessung während der Fahrt
 
-Nach der statischen Überprüfung wurden die beiden Ultraschallsensoren während der Fahrt auf der Teststrecke getestet. Das Fahrzeug fuhr dabei mit den zuvor ermittelten PWM-Grundwerten von 70 % für den linken und 67 % für den rechten Motor einen geraden Streckenabschnitt entlang.
+Nach der statischen Überprüfung wurden die beiden Ultraschallsensoren während der Fahrt auf der Teststrecke getestet. Das Fahrzeug fuhr dabei mit den zuvor ermittelten PWM-Grundwerten von 70 % für den linken und 71 % für den rechten Motor einen geraden Streckenabschnitt entlang.
 
 Während der Fahrt wurden die Messwerte beider Ultraschallsensoren kontinuierlich im Terminal ausgegeben. Die Abstände veränderten sich entsprechend der Position des Fahrzeugs nachvollziehbar.
 
