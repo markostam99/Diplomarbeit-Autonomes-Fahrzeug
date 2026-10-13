@@ -13,12 +13,12 @@ Die Ausweichbewegung besteht aus drei aufeinanderfolgenden Fahrabschnitten. Zuer
 
 | Manöver | PWM links | PWM rechts | Dauer |
 |---|---:|---:|---:|
-| Ausweichen links – Linksbogen | 40 % | 76 % | 1,0 s |
-| Ausweichen links – Rechtsbogen | 75 % | 40 % | 1,9 s |
-| Ausweichen links – Endkorrektur | 40 % | 76 % | 1,0 s |
-| Ausweichen rechts – Rechtsbogen | 75 % | 40 % | 1,0 s |
-| Ausweichen rechts – Linksbogen | 40 % | 76 % | 1,9 s |
-| Ausweichen rechts – Endkorrektur | 75 % | 40 % | 1,0 s |
+| Ausweichen links – Linksbogen | 40 % | 80 % | 1,0 s |
+| Ausweichen links – Rechtsbogen | 75 % | 40 % | 2.35 s |
+| Ausweichen links – Endkorrektur | 40 % | 80 % | 1,2 s |
+| Ausweichen rechts – Rechtsbogen | 79 % | 40 % | 1,0 s |
+| Ausweichen rechts – Linksbogen | 40 % | 76 % | 2,35 s |
+| Ausweichen rechts – Endkorrektur | 79 % | 40 % | 1,2 s |
 
 Nach Abschluss des Ausweichmanövers wird wieder auf die kalibrierten Werte der Geradeausfahrt von 70 % links und 71 % rechts gewechselt.
 
